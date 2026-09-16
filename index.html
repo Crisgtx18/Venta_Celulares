@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechCelulares | Venda de Celulares</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="barra-navegacion">
+        <div class="contenedor-navegacion">
+            <a href="index.html" class="logo">Tech<span>Celulares</span></a>
+            <ul class="enlaces-navegacion">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+        <div class="hero-contenido">
+            <h1>Os melhores <span class="resaltado">celulares</span> pelo melhor preço</h1>
+            <p>Compre seu celular novo ou seminovo com garantia. Enviamos para todo o Brasil.</p>
+            <a href="#catalogo" class="boton-primario">Ver catálogo</a>
+        </div>
+    </section>
+
+    <!-- CATÁLOGO -->
+    <section id="catalogo" class="seccion">
+        <h2 class="titulo-seccion">Catálogo</h2>
+
+        <!-- Filtros -->
+        <div class="filtros">
+            <button class="filtro activo" data-filtro="todos">Todos</button>
+            <button class="filtro" data-filtro="iphone">iPhone</button>
+            <button class="filtro" data-filtro="samsung">Samsung</button>
+            <button class="filtro" data-filtro="xiaomi">Xiaomi</button>
+            <button class="filtro" data-filtro="motorola">Motorola</button>
+        </div>
+
+        <!-- Produtos -->
+        <div class="cuadricula-productos">
+
+            <div class="tarjeta-producto" data-marca="iphone">
+                <div class="imagen-producto">
+                    <img src="assets/pictures/iphone.jpg" alt="iPhone 14">
+                </div>
+                <h3>iPhone 14</h3>
+                <p class="marca">Apple</p>
+                <p class="descripcion">128GB, 6GB RAM, câmera dupla de 12MP.</p>
+                <p class="precio">R$ 3.500</p>
+                <a href="https://wa.me/5575999971121?text=Ol%C3%A1,%20quero%20informa%C3%A7%C3%B5es%20sobre%20o%20iPhone%2014" target="_blank" class="boton-comprar">Consultar no WhatsApp</a>
+            </div>
+
+            <div class="tarjeta-producto" data-marca="samsung">
+                <div class="imagen-producto">
+                    <img src="assets/pictures/samsung.jpg" alt="Samsung Galaxy S23">
+                </div>
+                <h3>Samsung Galaxy S23</h3>
+                <p class="marca">Samsung</p>
+                <p class="descripcion">256GB, 8GB RAM, câmera tripla de 50MP.</p>
+                <p class="precio">R$ 3.200</p>
+                <a href="https://wa.me/5575999971121?text=Ol%C3%A1,%20quero%20informa%C3%A7%C3%B5es%20sobre%20o%20Samsung%20Galaxy%20S23" target="_blank" class="boton-comprar">Consultar no WhatsApp</a>
+            </div>
+
+            <div class="tarjeta-producto" data-marca="xiaomi">
+                <div class="imagen-producto">
+                    <img src="assets/pictures/xiaomi.jpg" alt="Xiaomi Redmi Note 12">
+                </div>
+                <h3>Xiaomi Redmi Note 12</h3>
+                <p class="marca">Xiaomi</p>
+                <p class="descripcion">128GB, 6GB RAM, câmera tripla de 50MP.</p>
+                <p class="precio">R$ 1.200</p>
+                <a href="https://wa.me/5575999971121?text=Ol%C3%A1,%20quero%20informa%C3%A7%C3%B5es%20sobre%20o%20Xiaomi%20Redmi%20Note%2012" target="_blank" class="boton-comprar">Consultar no WhatsApp</a>
+            </div>
+
+            <div class="tarjeta-producto" data-marca="motorola">
+                <div class="imagen-producto">
+                    <img src="assets/pictures/motorola.jpg" alt="Motorola Edge 40">
+                </div>
+                <h3>Motorola Edge 40</h3>
+                <p class="marca">Motorola</p>
+                <p class="descripcion">256GB, 8GB RAM, câmera dupla de 50MP.</p>
+                <p class="precio">R$ 2.100</p>
+                <a href="https://wa.me/5575999971121?text=Ol%C3%A1,%20quero%20informa%C3%A7%C3%B5es%20sobre%20o%20Motorola%20Edge%2040" target="_blank" class="boton-comprar">Consultar no WhatsApp</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="seccion seccion-oscura">
+        <h2 class="titulo-seccion">Contato</h2>
+        <p class="texto-contacto">Ficou com dúvida? Fale com a gente pelo WhatsApp!</p>
+        <div class="botones-contacto">
+            <a href="https://wa.me/5575999971121" target="_blank" class="boton-primario">💬 WhatsApp</a>
+            <a href="mailto:crisgtx18@gmail.com" class="boton-secundario">📧 Email</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pie-pagina">
+        <p>© 2026 TechCelulares. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- SCRIPT PARA FILTROS -->
+    <script>
+        const filtros = document.querySelectorAll('.filtro');
+        const productos = document.querySelectorAll('.tarjeta-producto');
+
+        filtros.forEach(filtro => {
+            filtro.addEventListener('click', () => {
+                filtros.forEach(f => f.classList.remove('activo'));
+                filtro.classList.add('activo');
+
+                const marca = filtro.dataset.filtro;
+
+                productos.forEach(producto => {
+                    if (marca === 'todos' || producto.dataset.marca === marca) {
+                        producto.style.display = 'flex';
+                    } else {
+                        producto.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
